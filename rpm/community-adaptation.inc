@@ -22,14 +22,7 @@ touch $RPM_BUILD_ROOT/init_disable_telnet
 
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/
 
-%if "%{flavour}" == "testing"
-sed -e "s|@FLAVOUR@|testing|g" \
-%else
-sed -e "s|@FLAVOUR@|devel|g" \
-    -e "s|sailfishos_%%(release)|sailfish_latest_%%(arch)|g" \
-%endif
-    adaptation-community-common.ini > $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/adaptation-community-common.ini
-
+cp adaptation-community-common.%{flavour}.ini $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/adaptation-community-common.ini
 cp adaptation-community-system.ini $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/
 
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/ssu/repos.d/
