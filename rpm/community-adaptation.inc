@@ -22,7 +22,9 @@ touch $RPM_BUILD_ROOT/init_disable_telnet
 
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/
 
-cp adaptation-community-common.%{flavour}.ini $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/adaptation-community-common.ini
+# drop adaptation-community-common as it is provided by Jolla directly
+#cp adaptation-community-common.%{flavour}.ini $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/adaptation-community-common.ini
+
 cp adaptation-community-system.ini $RPM_BUILD_ROOT/%{_datadir}/ssu/features.d/
 
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/ssu/repos.d/
